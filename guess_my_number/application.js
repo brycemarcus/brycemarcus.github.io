@@ -1,15 +1,23 @@
 $(document).ready(function(){
-  var compGuess= Math.floor(Math.random()*100);
+  //find a way for the program to choose a random number between 1 and 100, save this as a variable
+  var CurrentIndex = 100
+  var click_count = 0
+  randomIndex = Math.floor(Math.random()*100);
+  //when the player clicks on the 'guess' button
   $('button').on('click', function(){
-    var guess= $('input').val();
-    if (compGuess == guess){
-      alert("You win")
+    var userGuess = $('input').val();
+    click_count = click_count+1 ;
+    $('#guess_counter').empty().append(click_count)
+    console.log(click_count)
+    console.log(userGuess)
+    if (userGuess == randomIndex){
+      alert("You Guessed Correct")
     }
-    else if (compGuess > guess ){
-      alert("Guess Lower!")
+    else if (userGuess > randomIndex){
+      alert("Guess a Little Lower")
     }
-    else if (compGuess < guess){
-      alert("Guess Higher!")
+    else if (userGuess < randomIndex){
+      alert("Guess A Bit Higher")
     }
   });
 });
