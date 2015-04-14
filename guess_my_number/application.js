@@ -1,20 +1,14 @@
 $(document).ready(function(){
-var CurrentIndex = 100
-  var click_count = 0
-  randomIndex = Math.floor(Math.random()*100);
+  var compGuess= Math.floor(Math.random()*100);
   $('button').on('click', function(){
-    var userGuess = $('input').val();
-    click_count = click_count+1 ;
-    $('#guess_counter')
-    console.log(click_count)
-    console.log(userGuess)
-    if (userGuess == randomIndex){
+    var guess= $('input').val();
+    if (compGuess == guess){
       alert("You win")
     }
-    else if (userGuess > randomIndex){
+    else if (compGuess > guess ){
       alert("Guess Lower!")
     }
-    else if (userGuess < randomIndex){
+    else if (compGuess < guess){
       alert("Guess Higher!")
     }
   });
